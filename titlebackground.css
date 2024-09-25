@@ -1,0 +1,12 @@
+.full-width-background {
+    background-color: #363a45; /* #0b88b6 rengi (transparan değil) */
+    padding: 10px 0; /* Başlık üzerinde ve altında boşluk bırakır */
+    text-align: center; /* Başlığı yatayda ortalar */
+    width: 100%; /* Arka planı sayfanın tamamına yayar */
+    border-radius: 20px 20px 0 0; /* Sadece üst köşeleri yuvarlar, alt köşeleri sivri bırakır */
+}
+
+h1 {
+    margin: 0; /* Varsayılan boşluğu kaldırır */
+    font-size: 2em; /* Başlık boyutunu belirler */
+}
