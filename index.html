@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buton Tasarımı</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1c1c1c;
+            margin: 20;
+            padding: 20px;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100%;
+            overflow-y: auto; /* Sayfanın kaydırılmasını sağla */
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px; /* Üst boşluk */
+            margin-bottom: 20px; /* Alt boşluk */
+        }
+
+        .button {
+            background-color: #0b88b6;
+            color: white;
+            padding: 20px 30px;
+            border: none;
+            border-radius: 0px;
+            font-size: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .button:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background-color: rgba(255, 255, 255, 0.1);
+            -webkit-transform: translate(-50%, -50%) rotate(45deg);
+            -webkit-transition: width 0.5s ease, height 0.5s ease;
+            z-index: -1;
+        }
+
+        .button:hover:before {
+            width: 0;
+            height: 0;
+        }
+
+        .button:hover {
+            -webkit-transform: scale(1.05);
+            -webkit-box-shadow: 0 4px 15px rgba(0, 150, 255, 0.5);
+            background-color: #14b4ef;
+        }
+
+        @media (max-width: 768px) {
+            .button {
+                font-size: 16px;
+                padding: 15px 25px;
+            }
+        }
+
+        /* Basit fade-in animasyonu */
+        .fade-in {
+            opacity: 0;
+            -webkit-animation: fadeIn 1s forwards;
+        }
+
+        @-webkit-keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Sayfanın üst ve altına boşluk ekle */
+        body {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container fade-in">
+        <button class="button" onclick="goToPageWithDelay('rsi30altindakihisseler.html')">RSI 30 Seviyesinin Altındaki Hisseler</button>
+        <button class="button" onclick="goToPageWithDelay('rsi70uzerindekihisseler.html')">RSI 70 Seviyesinin Üzerindeki Hisseler</button>
+        <button class="button" onclick="goToPageWithDelay('yilinendusugu.html')">52 Haftanın En Düşüğündeki Hisseler</button>
+        <button class="button" onclick="goToPageWithDelay('gununencokkazandiranlari.html')">Günün En Çok Kazandıran Hisseleri (Tam Liste)</button>
+        <button class="button" onclick="goToPageWithDelay('gununencokkaybettirenleri.html')">Günün En Çok Kaybettiren Hisseleri (Tam Liste)</button>
+        <button class="button" onclick="goToPageWithDelay('uygulamahakkinda.html')">Uygulama Hakkında</button>
+        <button class="button" onclick="goToPageWithDelay('gizlilikpolitikasi.html')">Gizlilik Politikası</button>
+    </div>
+
+    <script>
+        // Yönlendirme animasyonu için 1 saniye gecikme
+        function goToPageWithDelay(page) {
+            setTimeout(function() {
+                window.location.href = page;
+            }, 0000); // 1 saniye gecikme
+        }
+
+        // Sayfayı açarken fade-in efekti ver
+        window.onload = function() {
+            const container = document.querySelector('.button-container');
+            container.classList.add('fade-in');
+        };
+    </script>
+</body>
+</html>
