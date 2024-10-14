@@ -48,6 +48,17 @@
   </script>
 </div>
 <!-- TradingView Widget END -->
+<script>
+window.addEventListener('load', function() {
+    // Sayfa yüklendikten sonra belirli bir süre gecikme ile checkbox'ı bulup devre dışı bırakıyoruz
+    setTimeout(function() {
+        let checkbox = document.querySelector('input[aria-label="Current trading day"]');
+        if (checkbox && checkbox.checked) {
+            checkbox.click(); // Eğer "checked" yani tikli ise, tıklayarak işareti kaldırıyoruz
+        }
+    }, 2000); // 2 saniyelik gecikme, widget yüklendikten sonra işlemi yapıyoruz
+});
+</script>
 <p><strong>RSI 30 Seviyesinin Altında Kullanılabilecek Stratejiler:</strong></p>
 
 <p><strong>1. RSI Ters Çevirme Stratejisi:</strong></p>
