@@ -33,7 +33,11 @@
 <!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container">
   <div class="tradingview-widget-container__widget"></div>
-  <div class="tradingview-widget-copyright"><a href="https://tr.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Tüm piyasaları TradingView üzerinden takip edin</span></a></div>
+  <div class="tradingview-widget-copyright">
+    <a href="https://tr.tradingview.com/" rel="noopener nofollow" target="_blank">
+      <span class="blue-text">Tüm piyasaları TradingView üzerinden takip edin</span>
+    </a>
+  </div>
   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
   {
   "width": "100%",
@@ -44,10 +48,22 @@
   "showToolbar": false,
   "colorTheme": "dark",
   "locale": "tr"
-}
+  }
   </script>
 </div>
 <!-- TradingView Widget END -->
+
+<script>
+window.addEventListener('load', function() {
+    // Widget yüklendikten sonra belirli bir süre gecikme ile checkbox'ı bulup devre dışı bırakıyoruz
+    setTimeout(function() {
+        let checkbox = document.querySelector('input[aria-label="Current trading day"]');
+        if (checkbox && checkbox.checked) {
+            checkbox.click(); // Eğer "checked" yani tikli ise, tıklayarak işareti kaldırıyoruz
+        }
+    }, 4000); // 4 saniyelik gecikme, widget yüklendikten sonra işlemi yapıyoruz
+});
+</script>
 <script>
 window.addEventListener('load', function() {
     // Sayfa yüklendikten sonra belirli bir süre gecikme ile checkbox'ı bulup devre dışı bırakıyoruz
